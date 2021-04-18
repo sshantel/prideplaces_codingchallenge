@@ -6,7 +6,7 @@ class Posts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      posts: [],
     };
   }
 
@@ -15,24 +15,25 @@ class Posts extends React.Component {
       .then((res) => res.json())
       .then((result) => {
         this.setState({
-          items: result,
+          posts: result,
         });
       });
   }
 
   render() {
-    const { items } = this.state;
+    const { posts } = this.state;
 
     return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.userId}>
-            <h3>{item.id}</h3>
-            <p>{item.title}</p>
-            <p>{item.body}</p>
-          </li>
+      <p>
+        {posts.map((post) => (
+          <div className="post">
+            <h3>POST ID: {post.id}</h3>
+            <p>{post.userId}</p>
+            <p>{post.title}</p>
+            <p>{post.body}</p>
+          </div>
         ))}
-      </ul>
+      </p>
     );
   }
 }
