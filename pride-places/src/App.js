@@ -1,10 +1,10 @@
 import "./App.css";
-import Posts from "./components/Posts/Posts";
+import Cards from "./components/Cards/Cards";
 
 export default function App() {
   return (
     <div className="App">
-      <Posts />
+      <Cards />
     </div>
   );
 }
