@@ -24,19 +24,20 @@ class App extends Component {
     const { cards } = this.state;
 
     return (
-      <div className="App">
-        {cards.map((card) => (
-          <div className="flex-container">
-            <CardList name={card.userId}>
-              <h1> poop</h1>
-            </CardList>
-            <p id="post-id"> {card.id}</p>
-            <p id="post-user-id">{card.userId}</p>
-            <p id="post-title">{card.title}</p>
-            <p id="post-body">{card.body}</p>
-          </div>
-        ))}
-      </div>
+      <React.Fragment>
+        <div className="App">
+          <CardList cards={this.state.cards}>
+            {" "}
+            {this.state.cards.map((card) => (
+              <h3 key={card.id}>
+                {card.userId}
+                {card.body}
+                {card.title}
+              </h3>
+            ))}
+          </CardList>
+        </div>
+      </React.Fragment>
     );
   }
 }
