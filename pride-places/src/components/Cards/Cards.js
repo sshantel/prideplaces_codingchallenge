@@ -1,7 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Cards.css";
 
 export const CardList = (props) => {
-  console.log(props);
-  return <div className="card-list">{props.children}</div>;
+  return (
+    <div className="card-list">
+      {props.cards.map((card) => (
+        <h3 key={card.id}>
+          {card.name}
+          {card.body}
+          {card.title}
+        </h3>
+      ))}
+    </div>
+  );
 };

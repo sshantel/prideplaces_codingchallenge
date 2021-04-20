@@ -14,6 +14,7 @@ class App extends Component {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         this.setState({
           cards: result,
         });
@@ -21,23 +22,10 @@ class App extends Component {
   }
 
   render() {
-    const { cards } = this.state;
-
     return (
-      <React.Fragment>
-        <div className="App">
-          <CardList cards={this.state.cards}>
-            {" "}
-            {this.state.cards.map((card) => (
-              <h3 key={card.id}>
-                {card.userId}
-                {card.body}
-                {card.title}
-              </h3>
-            ))}
-          </CardList>
-        </div>
-      </React.Fragment>
+      <div className="App">
+        <CardList cards={this.state.cards} />
+      </div>
     );
   }
 }
