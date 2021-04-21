@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { CardList } from "./components/Cards/Cards";
+import React, { Component } from "react"; 
 import { Modal } from "./components/Modal/Modal";
 import "./App.css";
 
@@ -22,6 +21,7 @@ class App extends Component {
         <Modal />
         <CardList cards={this.state.cards} />
       </div>
+      {this.state.showModal ? <Modal title={card.title} />: null}
     );
   }
 }

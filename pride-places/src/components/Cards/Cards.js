@@ -1,10 +1,27 @@
 import React from "react";
 import "./Cards.css";
 
-export const CardList = (props) => (
-  <div className="card-list key={card.id}">
-    {props.cards.map((card) => (
-      <h3 key={card.userId}>{card.title}</h3>
+function showModal() { 
+  const showModal: false;
+}
+
+function handleClick = (e) => {
+  this.setState({ showModal: !this.state.showModal });
+};
+
+return (
+  <p>
+    {cards.map((card=> (
+      <>
+      <div key = "card.id" onClick = {this.handleClick} className="cards">
+        <h3>{card.id}</h3>
+        <p> {card.userId}</p>
+        <p> {card.title}</p>
+        <p> {card.body}</p>
+      </div>
+      {this.state.showModal? <Modal title={card.title}/> : null}
+      </>
     ))}
-  </div>
-);
+  </p>
+  );
+}
