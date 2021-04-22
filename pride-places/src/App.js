@@ -1,5 +1,6 @@
-import React, { Component } from "react"; 
+import React, { Component } from "react";
 import { Modal } from "./components/Modal/Modal";
+import { CardList } from "./components/Cards/Cards";
 import "./App.css";
 
 class App extends Component {
@@ -16,12 +17,23 @@ class App extends Component {
   }
 
   render() {
+    const { cards } = this.state;
+
     return (
-      <div className="App">
-        <Modal />
-        <CardList cards={this.state.cards} />
-      </div>
-      {this.state.showModal ? <Modal title={card.title} />: null}
+      <React.Fragment>
+        <div className="App">
+          <CardList cards={this.state.cards}>
+            {" "}
+            {this.state.cards.map((card) => (
+              <h3 key={card.id}>
+                {card.userId}
+                {card.body}
+                {card.title}
+              </h3>
+            ))}
+          </CardList>
+        </div>
+      </React.Fragment>
     );
   }
 }
